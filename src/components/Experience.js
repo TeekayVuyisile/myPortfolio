@@ -2,7 +2,7 @@ import React from 'react';
 
 const Experience = () => {
   const calculateDuration = () => {
-    const startDate = new Date('2025-05-01');
+    const startDate = new Date('2025-03-01');
     const currentDate = new Date();
     
     const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + 
@@ -25,7 +25,7 @@ const Experience = () => {
       id: 1,
       title: "Full Stack Developer",
       company: "Department of Economics Development and Tourism",
-      period: "May 2025 - Present",
+      period: "March 2025 - Present",
       duration: calculateDuration(),
       responsibilities: [
         "Developing and maintaining enterprise-level web applications",
@@ -68,7 +68,7 @@ const Experience = () => {
                 
                 <div className="experience-technologies">
                   <h4>Technologies Used:</h4>
-                  <div className="tech-tags ">
+                  <div className="project-technologies">
                     {exp.technologies.map(tech => (
                       <span key={tech} className="tech-tag mx-1">{tech}</span>
                     ))}
