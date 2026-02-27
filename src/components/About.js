@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const About = () => {
   return (
@@ -8,46 +8,27 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p className="about-description">
-              I'm a passionate Full Stack Developer with a strong foundation in both 
-              theoretical knowledge and practical application. My journey in software 
-              development combines formal education with hands-on experience, allowing 
-              me to create robust, scalable solutions that solve real-world problems.
+              I’m a Full-Stack Web Developer with a Diploma in ICT and hands-on
+              experience in building responsive, user-friendly web applications.
+              Skilled in front-end and back-end development, database
+              management, and cloud technologies. Known for problem-solving,
+              teamwork, and delivering impactful solutions. I follow Agile
+              methodologies, focus on clean code principles, and prioritize
+              user-centered design in all my projects. Passionate about
+              learning, I thrive on building impactful applications that
+              seamlessly blend functionality, creativity, and innovation.
             </p>
+
             
-            <div className="about-highlights">
-              <div className="highlight-item">
-                <div className="highlight-icon">💼</div>
-                <div className="highlight-content">
-                  <h4>Professional Experience</h4>
-                  <p>Currently working as a Full Stack Developer at the Department of Economics Development and Tourism, building enterprise-level applications.</p>
-                </div>
-              </div>
-              
-              <div className="highlight-item">
-                <div className="highlight-icon">🎓</div>
-                <div className="highlight-content">
-                  <h4>Educational Background</h4>
-                  <p>Diploma in ICT from Sol Plaatje University, complemented by specialized bootcamps and continuous learning.</p>
-                </div>
-              </div>
-              
-              <div className="highlight-item">
-                <div className="highlight-icon">🚀</div>
-                <div className="highlight-content">
-                  <h4>Development Approach</h4>
-                  <p>I follow Agile methodologies, focus on clean code principles, and prioritize user-centered design in all my projects.</p>
-                </div>
-              </div>
-            </div>
           </div>
-          
+
           <div className="about-stats">
             <div className="stat-card">
               <h3 className="stat-number">5+</h3>
               <p className="stat-label">Projects Completed</p>
             </div>
             <div className="stat-card">
-              <h3 className="stat-number">3</h3>
+              <h3 className="stat-number">2</h3>
               <p className="stat-label">Client Systems</p>
             </div>
             <div className="stat-card">

@@ -1,4 +1,13 @@
 import React, { useState } from 'react';
+import { 
+  Envelope, 
+  Telephone, 
+  GeoAlt, 
+  Linkedin, 
+  CheckCircle, 
+  ExclamationCircle,
+  Send 
+} from 'react-bootstrap-icons';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -70,27 +79,27 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: '📧',
+      icon: Envelope,
       title: 'Email',
-      value: 'Vuyisilemanalet24@gmail.com', // Replace with your actual email
+      value: 'Vuyisilemanalet24@gmail.com',
       link: 'mailto:Vuyisilemanalet24@gmail.com'
     },
     {
-      icon: '📱',
+      icon: Telephone,
       title: 'Phone',
-      value: '073 881 4600', // Replace with your actual phone
-      link: 'tel: 073 881 4600'
+      value: '073 881 4600',
+      link: 'tel:0738814600'
     },
     {
-      icon: '📍',
+      icon: GeoAlt,
       title: 'Location',
       value: 'South Africa',
       link: null
     },
     {
-      icon: '💼',
+      icon: Linkedin,
       title: 'LinkedIn',
-      value: 'linkedin.com/in/teekay-manale', // Replace with your actual LinkedIn
+      value: 'linkedin.com/in/teekay-manale',
       link: 'https://linkedin.com/in/teekay-manale'
     }
   ];
@@ -113,21 +122,26 @@ const Contact = () => {
             </p>
             
             <div className="contact-details">
-              {contactInfo.map((item, index) => (
-                <div key={index} className="contact-item">
-                  <div className="contact-icon">{item.icon}</div>
-                  <div className="contact-text">
-                    <h4>{item.title}</h4>
-                    {item.link ? (
-                      <a href={item.link} target="_blank" rel="noopener noreferrer">
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span>{item.value}</span>
-                    )}
+              {contactInfo.map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <div key={index} className="contact-item">
+                    <div className="contact-icon">
+                      <IconComponent size={24} />
+                    </div>
+                    <div className="contact-text">
+                      <h4>{item.title}</h4>
+                      {item.link ? (
+                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                          {item.value}
+                        </a>
+                      ) : (
+                        <span>{item.value}</span>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             
             <div className="availability">
@@ -137,11 +151,9 @@ const Contact = () => {
               </div>
               <p>Response time: Usually within 24 hours</p>
             </div>
-
-           
           </div>
           
-          <div className="contact-form-container">
+          <div className="contact-form-container pt-5">
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-row">
                 <div className="form-group">
@@ -211,19 +223,24 @@ const Contact = () => {
                     Sending...
                   </>
                 ) : (
-                  'Send Message'
+                  <>
+                    <Send size={18} />
+                    Send Message
+                  </>
                 )}
               </button>
               
               {submitStatus === 'success' && (
                 <div className="alert alert-success">
-                  ✅ Message sent successfully! I'll get back to you soon.
+                  <CheckCircle size={20} />
+                  <span>Message sent successfully! I'll get back to you soon.</span>
                 </div>
               )}
               
               {submitStatus === 'error' && (
                 <div className="alert alert-error">
-                  ❌ {errorMessage || 'There was an error sending your message. Please try again.'}
+                  <ExclamationCircle size={20} />
+                  <span>{errorMessage || 'There was an error sending your message. Please try again.'}</span>
                 </div>
               )}
             </form>

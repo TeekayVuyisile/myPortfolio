@@ -4,30 +4,22 @@ const References = () => {
   const references = [
     {
       id: 1,
-      name: "DEDAT Management",
-      position: "Project Stakeholders",
+      name: "Mr Vernan Van Nel",
+      position: "Supervisor",
       organization: "Department of Economics Development and Tourism",
       project: "DEDAT Learner Portal Management System",
       testimony: "Teekay demonstrated exceptional skill in developing our learner management system. His attention to detail and understanding of our requirements resulted in a solution that significantly improved our operational efficiency.",
-      contact: "Available upon request"
+      contact: "078 094 7354"
     },
+   
     {
       id: 2,
-      name: "Edulens Project Team",
-      position: "Educational Technology Partners",
-      organization: "Edulens LMS Project",
-      project: "Edulens LMS For Grade R-3",
-      testimony: "The Learning Management System developed by Teekay has been instrumental in enhancing our early childhood education programs. His ability to create user-friendly interfaces for young learners was particularly impressive.",
-      contact: "Available upon request"
-    },
-    {
-      id: 3,
-      name: "Awrise Implementation Team",
-      position: "Educational Intervention Specialists",
+      name: "Miss Florence Kalipa",
+      position: "Founder",
       organization: "Awrise Program",
       project: "Awrise Intervention Management System",
       testimony: "Teekay's technical expertise and problem-solving skills were crucial in developing our intervention tracking system. He consistently delivered high-quality work and was responsive to our evolving needs throughout the project.",
-      contact: "Available upon request"
+      contact: "083 498 7344"
     }
   ];
 
