@@ -11,7 +11,7 @@ import {
   People,
   BarChartLine,
   TicketPerforated,
-  Map,
+  
   Check2Square,
   Robot
 } from 'react-bootstrap-icons';

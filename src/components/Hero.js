@@ -7,9 +7,10 @@ const Hero = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const titles = [
+  // Move titles inside the component and memoize it
+  const titles = React.useMemo(() => [
     'Full Stack Software Developer',
-  ];
+  ], []);
 
   useEffect(() => {
     const handleTyping = () => {
@@ -56,7 +57,7 @@ const Hero = () => {
               <a href="#projects" className="btn btn-primary">View My Work</a>
               <div className="social-button-group">
                 <a href="#contact" className="btn btn-secondary">Get In Touch</a>
-                <div className="social-icons sm">
+                <div className="social-icons">
                   <a 
                     href="https://github.com/TeekayVuyisile" 
                     target="_blank" 
