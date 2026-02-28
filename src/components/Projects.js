@@ -91,7 +91,7 @@ const Projects = () => {
       technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL"],
       images: ["/images/logo4.png"],
       video: null,
-      githubLink: "https://github.com/yourusername/edulens-lms",
+      githubLink: "https://github.com/TeekayVuyisile/edulens_mvp",
       features: [
         "Role-based access (Admin, Teacher, Learner)",
         "Assessment and performance tracking",
@@ -108,7 +108,7 @@ const Projects = () => {
       images: ["/images/logo2.png"],
       video: null,
       logoDisclaimer: "The Sol Plaatjie University logo displayed is the property of its respective owner and is used here for demonstration purposes only.",
-      githubLink: "https://github.com/yourusername/event-management-system",
+      githubLink: "https://github.com/TeekayVuyisile/university_event_management_system",
       features: [
         "Event creation and management",
         "Ticketing system with QR codes",
@@ -124,7 +124,7 @@ const Projects = () => {
       technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL", "OpenAI API"],
       images: ["/images/logo5.png"],
       video: null,
-      githubLink: "https://github.com/yourusername/ai-travel-planner",
+      githubLink: "https://github.com/TeekayVuyisile/AI-Travel-Planner",
       features: [
         "AI-powered itinerary generation",
         "Real-time weather integration",
@@ -140,7 +140,7 @@ const Projects = () => {
       technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL"],
       images: ["/images/logo6.png"],
       video: null,
-      githubLink: "https://github.com/yourusername/todo-list-app",
+      githubLink: "https://github.com/TeekayVuyisile/To-Do-List-Management-System",
       features: [
         "User authentication",
         "Task statistics dashboard",
