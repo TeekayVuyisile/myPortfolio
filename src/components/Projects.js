@@ -69,9 +69,9 @@ const Projects = () => {
       fullDescription: "Developed a comprehensive educational intervention management system designed to track and manage learner assessments, educational materials, and monthly attendance registers with sign-off capabilities. The platform implements detailed student progress tracking with performance analytics and reporting dashboards, enabling educators to monitor individual and class-wide progress effectively. Key features include assessment management, material distribution, attendance tracking with digital sign-offs, and comprehensive analytics that provide insights into student performance and intervention effectiveness. Built with a React and Bootstrap frontend and Node.js/PostgreSQL backend, the system provides a responsive, user-friendly interface for educators to manage interventions and track student progress.",
       technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL", "REST API"],
       images: ["/images/logo3.png"],
-      video: "https://youtu.be/7sF0grOXr60",
+      video: null,
       logoDisclaimer: "The Awrise logo is the property of Awrise Innovations and is used here for demonstration purposes only with permission.",
-      permissionNote: "✓ Permission granted to demonstrate this system in my portfolio",
+      permissionNote: null,
       githubLink: null,
       features: [
         "Learner assessment tracking",
