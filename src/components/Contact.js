@@ -87,8 +87,8 @@ const Contact = () => {
     {
       icon: Telephone,
       title: 'Phone',
-      value: '079 851 8109',
-      link: 'tel:0798518109'
+      value: '060 872 1492',
+      link: 'tel:0608721492'
     },
     {
       icon: GeoAlt,

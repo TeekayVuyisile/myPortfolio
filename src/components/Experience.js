@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Experience = () => {
-  const calculateDuration = () => {
-    const startDate = new Date('2025-03-01');
-    const currentDate = new Date();
+  const calculateDuration = (startDateStr, endDateStr = null) => {
+    const startDate = new Date(startDateStr);
+    const endDate = endDateStr ? new Date(endDateStr) : new Date();
     
-    const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + 
-                  (currentDate.getMonth() - startDate.getMonth());
+    const months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + 
+                  (endDate.getMonth() - startDate.getMonth());
     
     const years = Math.floor(months / 12);
     const remainingMonths = months % 12;
@@ -23,19 +23,32 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: "Full Stack Developer",
-      company: "Department of Economics Development and Tourism",
-      period: "March 2025 - Present",
-      duration: calculateDuration(),
-      responsibilities: [
-        "Developing and maintaining enterprise-level web applications",
-        "Implementing responsive UI designs using React and Bootstrap",
-        "Building RESTful APIs with Node.js and Express",
-        "Database design and management with PostgreSQL",
-        "Collaborating with cross-functional teams using Agile methodologies",
-        "Deploying and maintaining applications in production environments"
+      title: "Full Stack Web Developer",
+      company: "Awrise Internship (Hosted by Dept. of Economic Development & Tourism)",
+      period: "Mar 2025 – Mar 2026",
+      duration: calculateDuration('2025-03-01', '2026-03-01'),
+      projects: [
+        {
+          name: "DEDAT (Dept. of Economic Development & Tourism) Internal LMS Project",
+          responsibilities: [
+            "Developed a full-featured Learning Management System (LMS) to improve internal training and e-learning processes",
+            "Built responsive interfaces using HTML, CSS, Bootstrap, and React",
+            "Implemented RESTful APIs with Node.js and managed data using PostgreSQL",
+            "Collaborated with stakeholders to gather requirements, troubleshoot issues, and deliver scalable technical solutions",
+            "Applied best practices in version control, testing, and deployment to ensure system reliability"
+          ]
+        },
+        {
+          name: "Educational Intervention Management System (Awrise Initiative)",
+          responsibilities: [
+            "Led end-to-end development of a platform for managing learner assessments & materials, attendance tracking with digital signoffs, and performance analytics dashboards",
+            "Collaborated with team members on requirements gathering and solution design, while independently developing the full system",
+            "Built responsive interfaces using React and Bootstrap",
+            "Developed backend services with Node.js (REST API) and PostgreSQL"
+          ]
+        }
       ],
-      technologies: ["EJS", "Node.js", "PostgreSQL", "Express", "Bootstrap", "JavaScript"]
+      technologies: ["HTML", "CSS", "Bootstrap", "React", "Node.js", "Express", "PostgreSQL", "REST API", "Git"]
     }
   ];
 
@@ -59,12 +72,16 @@ const Experience = () => {
               </div>
               
               <div className="experience-content">
-                <h4>Key Responsibilities:</h4>
-                <ul className="responsibilities-list">
-                  {exp.responsibilities.map((responsibility, idx) => (
-                    <li key={idx}>{responsibility}</li>
-                  ))}
-                </ul>
+                {exp.projects.map((project, idx) => (
+                  <div key={idx} className="project-section" style={{marginBottom: '1.5rem'}}>
+                    <h4>{project.name}</h4>
+                    <ul className="responsibilities-list">
+                      {project.responsibilities.map((responsibility, ridx) => (
+                        <li key={ridx}>{responsibility}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
                 
                 <div className="experience-technologies">
                   <h4>Technologies Used:</h4>

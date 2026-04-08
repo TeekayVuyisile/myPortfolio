@@ -15,8 +15,8 @@ const References = () => {
     {
       id: 2,
       name: "Miss Florence Kalipa",
-      position: "Founder",
-      organization: "Awrise Program",
+      position: "Programme Director",
+      organization: "Awrise",
       project: "Awrise Intervention Management System",
       testimony: "Teekay's technical expertise and problem-solving skills were crucial in developing our intervention tracking system. He consistently delivered high-quality work and was responsive to our evolving needs throughout the project.",
       contact: "083 498 7344"
@@ -61,13 +61,7 @@ const References = () => {
           ))}
         </div>
         
-        <div className="references-note">
-          <p>
-            <strong>Note:</strong> Additional references and detailed contact information 
-            available upon request. I'm happy to connect you with previous clients for 
-            more detailed discussions about my work and capabilities.
-          </p>
-        </div>
+        
       </div>
     </section>
   );

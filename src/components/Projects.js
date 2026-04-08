@@ -42,6 +42,12 @@ const Projects = () => {
     return JournalCheck;
   };
 
+  // Helper function to check if carousel should show (more than 1 image OR has video)
+  const hasCarouselControls = (project) => {
+    const totalSlides = (project.images?.length || 0) + (project.video ? 1 : 0);
+    return totalSlides > 1;
+  };
+
   const formalProjects = [
     {
       id: 1,
@@ -50,9 +56,9 @@ const Projects = () => {
       fullDescription: "Developed an internal Learning Management System (LMS) to streamline the management of courses, users, and training content for the Department of Economic Development and Tourism. The system features robust authentication and role-based access control, ensuring secure and appropriate access for different user types. Built with a responsive React and Bootstrap frontend, the platform provides an intuitive interface for administrators and learners. The backend is powered by Node.js and PostgreSQL, delivering reliable performance for handling training materials, tracking course completion, and managing user enrollments efficiently.",
       technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL"],
       images: ["/images/logo1.png"],
-      video: "https://youtu.be/dJjg1DQbMBw",
+      video: null,
       logoDisclaimer: "The DEDAT logo displayed is the property of the Department of Economic Development and Tourism and is used here for demonstration purposes only with permission.",
-      permissionNote: "✓ Permission granted to demonstrate this system in my portfolio",
+      permissionNote: null,
       githubLink: null,
       features: [
         "Course and user management",
@@ -206,9 +212,7 @@ const Projects = () => {
         <div className="global-permission-note">
           <InfoCircle size={20} />
           <p>
-            <strong>Note:</strong> I have obtained explicit permission to demonstrate these systems 
-            in my portfolio. All logos and trademarks displayed belong to their respective owners 
-            and are used with permission for demonstration purposes only.
+            <strong>Note:</strong> All logos and trademarks displayed belong to their respective owners.
           </p>
         </div>
 
@@ -326,9 +330,12 @@ const Projects = () => {
               
               <div className="modal-carousel">
                 <div className="carousel-container">
-                  <button className="carousel-btn prev" onClick={prevSlide}>
-                    <ChevronLeft size={24} />
-                  </button>
+                  {/* Conditionally show previous button */}
+                  {hasCarouselControls(activeProject) && (
+                    <button className="carousel-btn prev" onClick={prevSlide}>
+                      <ChevronLeft size={24} />
+                    </button>
+                  )}
                   
                   <div className="carousel-slide">
                     {activeProject.images.map((img, index) => (
@@ -388,12 +395,16 @@ const Projects = () => {
                     )}
                   </div>
                   
-                  <button className="carousel-btn next" onClick={nextSlide}>
-                    <ChevronRight size={24} />
-                  </button>
+                  {/* Conditionally show next button */}
+                  {hasCarouselControls(activeProject) && (
+                    <button className="carousel-btn next" onClick={nextSlide}>
+                      <ChevronRight size={24} />
+                    </button>
+                  )}
                 </div>
                 
-                {activeProject.images.length > 1 || activeProject.video ? (
+                {/* Conditionally show dots indicator */}
+                {hasCarouselControls(activeProject) && (
                   <div className="carousel-dots">
                     {[...Array(activeProject.images.length + (activeProject.video ? 1 : 0))].map((_, index) => (
                       <button
@@ -404,7 +415,7 @@ const Projects = () => {
                       />
                     ))}
                   </div>
-                ) : null}
+                )}
               </div>
               
               <div className="modal-details">
