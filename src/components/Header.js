@@ -108,7 +108,7 @@ const Header = () => {
           <div className="mobile-sidebar-brand">
             <a href="#home" onClick={handleLinkClick}>Teekay Manale</a>
           </div>
-          {/* Optional: Add social links in sidebar header */}
+          {/*Sidebar header */}
           <div className="mobile-sidebar-social">
             <a href="https://github.com/TeekayVuyisile" target="_blank" rel="noopener noreferrer" className="mobile-social-icon">
               <Github size={18} />

@@ -9,7 +9,7 @@ const References = () => {
       organization: "Department of Economics Development and Tourism",
       project: "DEDAT Learner Portal Management System",
       testimony: "Teekay demonstrated exceptional skill in developing our learner management system. His attention to detail and understanding of our requirements resulted in a solution that significantly improved our operational efficiency.",
-      contact: "078 094 7354"
+      contact: "073 739 5614"
     },
    
     {
