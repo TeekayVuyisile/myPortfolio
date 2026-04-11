@@ -95,7 +95,7 @@ const Projects = () => {
       shortDescription: "Role-based learning platform for primary schools (Grade R–3).",
       fullDescription: "Built a comprehensive role-based Learning Management System specifically designed for primary schools catering to Grade R through 3. The platform provides distinct interfaces and functionalities for administrators, teachers, and young learners, ensuring age-appropriate content delivery and management capabilities. Key features include assessment tracking to monitor student progress, detailed learner performance analytics that help identify areas for improvement, and academic progression tracking to ensure students meet grade-level expectations. A standout feature is the AI-powered worksheet generation system that creates curriculum-aligned exercises appropriate for each grade level, saving teachers valuable preparation time while ensuring educational content remains engaging and relevant.",
       technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL"],
-      images: ["/images/logo4.png"],
+      images: ["/images/logo4.png","/images/LMS/1.png","/images/LMS/2.png","/images/LMS/3.png","/images/LMS/4.png","/images/LMS/5.png","/images/LMS/6.png","/images/LMS/7.png","/images/LMS/8.png","/images/LMS/10.png"],
       video: null,
       githubLink: "https://github.com/TeekayVuyisile/edulens_mvp",
       features: [
@@ -110,8 +110,8 @@ const Projects = () => {
       title: "Event Management System",
       shortDescription: "Full-stack event platform with ticketing and QR code entry.",
       fullDescription: "Developed a comprehensive full-stack event management platform that streamlines the entire event lifecycle from creation to execution. The system provides distinct interfaces for administrators to create and manage events, and for attendees to discover, register, and participate. Core functionality includes a complete ticketing system that handles sales and validation, QR code-based entry management for secure and efficient check-ins, and integrated wallet management for handling payments and ticket storage. Built with a responsive React and Bootstrap frontend and a robust Node.js/PostgreSQL backend, the platform ensures smooth event operations whether managing a small workshop or a large conference with hundreds of attendees.",
-      technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL"],
-      images: ["/images/logo2.png"],
+      technologies: ["EJS", "Bootstrap", "Node.js", "Express", "PostgreSQL"],
+      images: ["/images/logo2.png","/images/Event_App/1.png","/images/Event_App/2.png","/images/Event_App/3.png","/images/Event_App/4.png","/images/Event_App/5.png","/images/Event_App/6.png","/images/Event_App/7.png","/images/Event_App/8.png","/images/Event_App/9.png","/images/Event_App/10.png","/images/Event_App/11.png","/images/Event_App/12.png"],
       video: null,
       logoDisclaimer: "The Sol Plaatjie University logo displayed is the property of its respective owner and is used here for demonstration purposes only.",
       githubLink: "https://github.com/TeekayVuyisile/university_event_management_system",
@@ -128,7 +128,7 @@ const Projects = () => {
       shortDescription: "AI-powered travel planning with personalized itineraries.",
       fullDescription: "Created an innovative AI-powered travel planning web application that generates personalized travel itineraries based on user preferences, budget constraints, and travel styles. The platform integrates multiple real-time APIs to provide comprehensive travel information including weather forecasts for destinations, interactive maps for navigation and exploration, and attraction data to help users discover points of interest. The AI engine analyzes user inputs to suggest optimal travel routes, accommodation options, and daily activities that align with individual preferences. All user data, saved itineraries, and preferences are persistently stored in PostgreSQL, allowing users to revisit and modify their travel plans. The responsive React frontend ensures a seamless experience across devices, while the Node.js/Express backend efficiently orchestrates API calls and data management.",
       technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL", "OpenAI API"],
-      images: ["/images/logo5.png"],
+      images: ["/images/logo5.png","/images/AI_Travel/1.png","/images/AI_Travel/2.png","/images/AI_Travel/3.png","/images/AI_Travel/4.png","/images/AI_Travel/5.png"],
       video: null,
       githubLink: "https://github.com/TeekayVuyisile/AI-Travel-Planner",
       features: [
@@ -144,7 +144,7 @@ const Projects = () => {
       shortDescription: "Full-stack task management with progress tracking.",
       fullDescription: "Built a full-stack task management web application designed to help users organize their tasks efficiently and track their productivity. The system features secure user authentication, ensuring that each user's tasks remain private and accessible only to them. A comprehensive dashboard provides visual task statistics, showing completion rates, pending items, and productivity trends over time. Tasks are automatically categorized based on their due dates, with the system intelligently marking overdue tasks as 'failed' while tracking completion progress for active tasks. The application implements full CRUD functionality through RESTful APIs, allowing users to create, read, update, and delete tasks and to-do lists seamlessly. The clean, intuitive interface built with React and Bootstrap makes task management effortless, while the Node.js/Express backend with PostgreSQL ensures reliable data persistence and retrieval.",
       technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL"],
-      images: ["/images/logo6.png"],
+      images: ["/images/logo6.png","/images/To_Do_List/1.png","/images/To_Do_List/2.png","/images/To_Do_List/3.png","/images/To_Do_List/4.png","/images/To_Do_List/5.png"],
       video: null,
       githubLink: "https://github.com/TeekayVuyisile/To-Do-List-Management-System",
       features: [
