@@ -6,6 +6,7 @@ const Skills = () => {
     { name: 'JavaScript', level: 85, category: 'Frontend' },
     { name: 'Bootstrap', level: 80, category: 'Frontend' },
     { name: 'Node.js', level: 85, category: 'Backend' },
+    { name: 'Python', level: 70, category: 'Backend' },
     { name: 'Express', level: 80, category: 'Backend' },
     { name: 'PostgreSQL', level: 80, category: 'Database' },
     { name: 'MySQL', level: 75, category: 'Database' },
@@ -15,7 +16,7 @@ const Skills = () => {
 
   const skillCategories = {
     'Frontend': ['React', 'JavaScript', 'Bootstrap'],
-    'Backend': ['Node.js', 'Express'],
+    'Backend': ['Node.js', 'Express','Python'],
     'Database': ['PostgreSQL', 'MySQL'],
     'Tools & Platforms': ['Git', 'AWS']
 
