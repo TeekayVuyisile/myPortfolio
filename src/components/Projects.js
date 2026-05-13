@@ -90,33 +90,57 @@ const Projects = () => {
 
   const sideProjects = [
     {
+      id: 10,
+      title: "Field Route Optimization & Site Verification System (Pro Edition)",
+      shortDescription: "Professional Field Operations & Compliance System for complex site verification trips.",
+      fullDescription: "A professional-grade web application designed for field teams to manage complex site verification trips. The system handles the entire lifecycle from coordinate import to final evidence-based reporting. Key use cases include WiFi & Telecom site verification, infrastructure inspections, and dynamic route planning. It features hands-free navigation with voice guidance, auto-pilot rerouting, and a robust photo evidence system with background syncing.",
+      images: ["/images/logo9.png"],
+      technologies: ["React", "Vite", "Bootstrap 5", "Leaflet", "Zustand", "Supabase", "OpenRouteService", "Web Speech API"],
+      video: null,
+      githubLink: "https://github.com/TeekayVuyisile/Field-Route-Optimization-Site-Verification-System",
+      demoLink: "https://field-route-optimization-site-verif.vercel.app/login",
+      features: [
+        "Hands-Free Navigation with voice guidance",
+        "Auto-Pilot Rerouting & re-optimization",
+        "Photo Evidence System with background sync",
+        "Digital Site Logbooks with real-time autosave",
+        "Field-Grade GPS signal filtering",
+        "Professional Reporting & analytics dashboard"
+      ]
+    },
+    {
       id: 3,
       title: "AI Mock Interview Coach",
-      shortDescription: "AI-powered mock interview preparation tool.",
-      fullDescription: "Created an AI-powered mock interview preparation web application that helps users practice and improve their interview skills. The platform provides a realistic interview experience by simulating common interview questions and scenarios, allowing users to practice their responses in a safe environment. The application integrates the Gemini API to generate dynamic interview questions and provide feedback on user responses, helping them refine their answers and build confidence. Built with a responsive React frontend and a Node.js/Express backend, the application offers an intuitive interface for users to engage with the mock interview coach, track their progress, and access personalized feedback to enhance their interview performance.",
-      technologies: ["React", "Bootstrap", "Node.js", "Express", "Gemini API"],
+      shortDescription: "AI-powered interview simulator using Gemini API and Web Speech API.",
+      fullDescription: "An AI-powered interview simulator that provides a realistic, voice-driven mock interview experience. Users can upload their CV and job descriptions for tailored questions. The app features voice-to-voice interaction where the AI speaks questions and listens to responses, providing real-time transcripts and a detailed AI feedback dashboard with scoring on confidence and technical depth.",
+      technologies: ["React", "Bootstrap", "Framer Motion", "Vercel Serverless", "Google Gemini", "Web Speech API"],
       images: ["/images/logo8.png"],
       video: null,
       githubLink: "https://github.com/TeekayVuyisile/AI-Mock-Interview-Coach",
+      demoLink: "https://ai-mock-interview-coach-orpin.vercel.app/",
       features: [
-        "Dynamic interview question generation",
-        "Personalized feedback and scoring",
-        "Progress tracking and analytics"
+        "CV & Job Description Analysis",
+        "Voice-to-Voice Interaction",
+        "Real-time Spoken Word Transcripts",
+        "AI Feedback Dashboard with detailed scoring",
+        "Serverless Backend Processing"
       ]
     },{
       id: 4,
-      title: "The Mafia Game",
-      shortDescription: "A real-time multiplayer social deduction game.",
-      fullDescription: "Developed a real-time multiplayer web application inspired by the popular social deduction game 'Mafia'. The platform allows players to join virtual game rooms, interact with each other through chat, and participate in game sessions where they can assume different roles such as Mafia, Medic, or Civilian. The game logic is implemented on the server side using Node.js and Socket.io to manage real-time communication between players, ensuring a seamless gaming experience. Players can create and join games, vote to eliminate suspects, and engage in strategic discussions to uncover the Mafia members. The responsive React frontend provides an engaging interface for players to interact with the game, while the backend handles game state management, player interactions, and real-time updates effectively.",
-      technologies: ["React", "Bootstrap", "Node.js", "Express", "Socket.io"],
+      title: "Mafia: The Underground Society",
+      shortDescription: "Cinematic, realtime multiplayer social deduction game.",
+      fullDescription: "A cinematic, realtime multiplayer Mafia party game experience. Players are assigned secret identities in an underground secret society. Featuring a polished, noir-inspired interface with glassmorphism, the game uses Socket.io for instantaneous phase transitions, voting, and chat. Includes a browser-based Text-to-Speech narrator and seamless reconnection support for identity persistence.",
+      technologies: ["React", "Framer Motion", "Bootstrap 5", "Socket.io", "Node.js", "Express", "Supabase"],
       images: ["/images/logo7.png"],
       video: null,
       githubLink: "https://github.com/TeekayVuyisile/mafia-game",
+      demoLink: "https://mafia-game-opal.vercel.app/",
       features: [
-        "Real-time multiplayer gameplay",
-        "Role-based game mechanics",
-        "In-game chat functionality",
-        "Dynamic game state management"
+        "Cinematic UI with glassmorphism & noir aesthetic",
+        "Realtime Synchronization via Socket.io",
+        "AI Narrator (Text-to-Speech)",
+        "Identity Persistence & reconnection support",
+        "Secure Account Management via Supabase"
       ]
     },
     {
@@ -157,8 +181,8 @@ const Projects = () => {
       title: "AI Travel Planner",
       shortDescription: "AI-powered travel planning with personalized itineraries.",
       fullDescription: "Created an innovative AI-powered travel planning web application that generates personalized travel itineraries based on user preferences, budget constraints, and travel styles. The platform integrates multiple real-time APIs to provide comprehensive travel information including weather forecasts for destinations, interactive maps for navigation and exploration, and attraction data to help users discover points of interest. The AI engine analyzes user inputs to suggest optimal travel routes, accommodation options, and daily activities that align with individual preferences. All user data, saved itineraries, and preferences are persistently stored in PostgreSQL, allowing users to revisit and modify their travel plans. The responsive React frontend ensures a seamless experience across devices, while the Node.js/Express backend efficiently orchestrates API calls and data management.",
-      technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL"],
-      images: ["/images/logo5.png","/images/AI_Travel/1.png","/images/AI_Travel/2.png","/images/AI_Travel/3.png","/images/AI_Travel/4.png","/images/AI_Travel/5.png"],
+      technologies: ["React", "Bootstrap", "Node.js", "Express","OpenWeatherMap","ExchangeRate-API", "PostgreSQL"],
+      images: ["/images/logo11.png","/images/AI_Travel/1.png","/images/AI_Travel/2.png","/images/AI_Travel/3.png","/images/AI_Travel/4.png","/images/AI_Travel/5.png"],
       video: null,
       githubLink: "https://github.com/TeekayVuyisile/AI-Travel-Planner",
       features: [
@@ -174,7 +198,7 @@ const Projects = () => {
       shortDescription: "Full-stack task management with progress tracking.",
       fullDescription: "Built a full-stack task management web application designed to help users organize their tasks efficiently and track their productivity. The system features secure user authentication, ensuring that each user's tasks remain private and accessible only to them. A comprehensive dashboard provides visual task statistics, showing completion rates, pending items, and productivity trends over time. Tasks are automatically categorized based on their due dates, with the system intelligently marking overdue tasks as 'failed' while tracking completion progress for active tasks. The application implements full CRUD functionality through RESTful APIs, allowing users to create, read, update, and delete tasks and to-do lists seamlessly. The clean, intuitive interface built with React and Bootstrap makes task management effortless, while the Node.js/Express backend with PostgreSQL ensures reliable data persistence and retrieval.",
       technologies: ["React", "Bootstrap", "Node.js", "Express", "PostgreSQL"],
-      images: ["/images/logo6.png","/images/To_Do_List/1.png","/images/To_Do_List/2.png","/images/To_Do_List/3.png","/images/To_Do_List/4.png","/images/To_Do_List/5.png"],
+      images: ["/images/logo10.png","/images/To_Do_List/1.png","/images/To_Do_List/2.png","/images/To_Do_List/3.png","/images/To_Do_List/4.png","/images/To_Do_List/5.png"],
       video: null,
       githubLink: "https://github.com/TeekayVuyisile/To-Do-List-Management-System",
       features: [
@@ -283,12 +307,25 @@ const Projects = () => {
                     <IconComponent size={20} />
                   </div>
                   <div className="project-overlay">
-                    <button 
-                      className="view-project-btn"
-                      onClick={() => openModal(project)}
-                    >
-                      View Details
-                    </button>
+                    <div className="overlay-buttons">
+                      <button 
+                        className="view-project-btn"
+                        onClick={() => openModal(project)}
+                      >
+                        View Details
+                      </button>
+                      {activeTab === 'side' && project.demoLink && (
+                        <a 
+                          href={project.demoLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="view-demo-overlay-btn"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div className="project-content">
@@ -485,19 +522,33 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* GitHub Link for Side Projects */}
-                {activeTab === 'side' && activeProject.githubLink && (
-                  <div className="modal-github-link">
-                    <a 
-                      href={activeProject.githubLink} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="github-btn"
-                    >
-                      <Github size={20} />
-                      <span>View Source Code on GitHub</span>
-                      <ArrowRight size={16} className="arrow-icon" />
-                    </a>
+                {/* Project Links for Side Projects */}
+                {activeTab === 'side' && (
+                  <div className="modal-project-links">
+                    {activeProject.demoLink && (
+                      <a 
+                        href={activeProject.demoLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="demo-btn"
+                      >
+                        <PlayCircle size={20} />
+                        <span>View Live Demo</span>
+                        <ArrowRight size={16} className="arrow-icon" />
+                      </a>
+                    )}
+                    {activeProject.githubLink && (
+                      <a 
+                        href={activeProject.githubLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="github-btn"
+                      >
+                        <Github size={20} />
+                        <span>View Source Code on GitHub</span>
+                        <ArrowRight size={16} className="arrow-icon" />
+                      </a>
+                    )}
                   </div>
                 )}
               </div>

@@ -893,27 +893,58 @@ html {
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 10;
 }
 
 .project-card:hover .project-overlay {
   opacity: 1;
 }
 
-.view-project-btn {
+.overlay-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.view-project-btn,
+.view-demo-overlay-btn {
   background: white;
   color: var(--primary-blue);
   border: none;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 25px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 0.9rem;
+  width: 140px;
+  text-align: center;
 }
 
-.view-project-btn:hover {
+.view-project-btn:hover,
+.view-demo-overlay-btn:hover {
   background: var(--bg);
   color: var(--text-primary);
   transform: scale(1.05);
+}
+
+.view-demo-overlay-btn {
+  background: var(--dark-bg);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.light-theme .view-demo-overlay-btn {
+  background: var(--light-bg);
+  color: var(--light-primary-blue);
+  border: 1px solid var(--light-border-color);
+}
+
+.view-demo-overlay-btn:hover {
+  background: var(--primary-blue);
+  color: white;
 }
 
 .project-content {
@@ -1220,11 +1251,37 @@ html {
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
-/* GitHub Link - Compact */
-.modal-github-link {
+/* Project Links - Compact */
+.modal-project-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
+}
+
+.demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(58, 134, 255, 0.3);
+  filter: brightness(1.1);
 }
 
 .github-btn {
@@ -2904,11 +2961,53 @@ html {
   white-space: pre-line;
 }
 
-/* GitHub Link Styles */
-.modal-github-link {
+/* Project Links Styles */
+.modal-project-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-color);
+}
+
+@media (min-width: 768px) {
+  .modal-project-links {
+    flex-direction: row;
+  }
+  .demo-btn, .github-btn {
+    flex: 1;
+  }
+}
+
+.demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(58, 134, 255, 0.4);
+  filter: brightness(1.1);
+}
+
+.demo-btn svg, .github-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.demo-btn:hover svg, .github-btn:hover svg {
+  transform: translateX(4px);
 }
 
 .github-btn {
