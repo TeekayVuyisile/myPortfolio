@@ -15,10 +15,10 @@ const Skills = () => {
   ];
 
   const skillCategories = {
-    'Frontend': ['React', 'JavaScript', 'Bootstrap'],
-    'Backend': ['Node.js', 'Express','Python'],
-    'Database': ['PostgreSQL', 'MySQL'],
-    'Tools & Platforms': ['Git', 'AWS']
+    'Frontend': ['React', 'JavaScript', 'Bootstrap', 'Tailwind CSS'],
+    'Backend': ['Node.js', 'Express','Python','RestAPI','WebSockets / Socket.IO'],
+    'Database': ['PostgreSQL', 'MySQL','MongoDB'],
+    'Tools & Platforms': ['Postman','Git & GitHub', 'AWS']
 
   };
 
