@@ -26,3 +26,6 @@ Thumbs.db
 
 # Optional cache
 .cache/
+
+# Claude Code local tooling config (machine-local, not project code)
+.claude/

@@ -10,6 +10,7 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import References from "./components/References";
 import Contact from "./components/Contact";
+import ChatWidget from "./components/ChatWidget";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Education />
 
         <Contact />
+        <ChatWidget />
       </div>
     </ThemeProvider>
   );

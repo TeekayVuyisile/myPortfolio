@@ -6,8 +6,9 @@ import {
   Linkedin, 
   CheckCircle, 
   ExclamationCircle,
-  Send 
+  Send
 } from 'react-bootstrap-icons';
+import EqualizerBars from './EqualizerBars';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -107,7 +108,7 @@ const Contact = () => {
   return (
     <section id="contact" className="section section-light">
       <div className="container-custom">
-        <h2 className="section-title">Get In Touch</h2>
+        <h2 className="section-title">Get In Touch<EqualizerBars className="title-equalizer" /></h2>
         <p className="section-subtitle">
           Ready to start your next project? Let's talk about how I can help bring your ideas to life.
         </p>

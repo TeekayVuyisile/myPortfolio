@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ChevronDown, ChevronUp, MusicNote } from 'react-bootstrap-icons';
+import EqualizerBars from './EqualizerBars';
+
+const RESPONSIBILITIES_PREVIEW_COUNT = 3;
 
 const Experience = () => {
+  const [expandedProjects, setExpandedProjects] = useState({});
+
+  const toggleProject = (key) => {
+    setExpandedProjects(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
   const calculateDuration = (startDateStr, endDateStr = null) => {
     const startDate = new Date(startDateStr);
     const endDate = endDateStr ? new Date(endDateStr) : new Date();
@@ -21,9 +31,41 @@ const Experience = () => {
   };
 
   const experiences = [
+     {
+      id: 2,
+      title: "Junior Full Stack Web Developer",
+      company: "Department of Economic Development & Tourism",
+      period: "May 2026 – Present",
+      duration: calculateDuration('2026-04-01', '2026-08-31'),
+      projects: [
+        {
+          name: "DEDAT (Dept. of Economic Development & Tourism) Internal LMS Project",
+          responsibilities: [
+            "Maintain and support the internal Learning Management System built during the internship, resolving bugs and handling ongoing feature requests",
+            "Monitor system performance and reliability, troubleshooting issues raised by internal users",
+            "Ship updates across the React frontend and Node.js/PostgreSQL backend while preserving existing functionality",
+            "Coordinate with stakeholders to prioritize fixes and small enhancements based on usage feedback"
+          ]
+        },
+        {
+          name: "Programme Delivery Dashboard",
+          responsibilities: [
+            "Sole developer of a real-time, collaborative dashboard replacing manual Excel-based tracking with a live single source of truth for portfolio, task, KPI, and risk management across departments",
+            "Designed the PostgreSQL schema and built a Node.js/Express REST API with a layered routes → controllers → models architecture (no ORM), including transactional multi-location inserts",
+            "Implemented a real-time layer with Socket.IO so task edits, comments, and status changes propagate instantly to every connected client",
+            "Built the React (Vite) frontend, including a dual-view spreadsheet/Kanban project tracker and interactive Leaflet/Mapbox-based multi-site location tracking",
+            "Developed an intelligent Excel import pipeline that auto-detects header rows, lets users map columns to the schema, and validates data before commit",
+            "Built a Financial Year/KPI subsystem for government-style quarterly reporting, including output indicators, quarter-tagged progress updates, and automatic snapshotting via scheduled jobs",
+            "Integrated AI-assisted report generation (Google Gemini with Groq fallback) to produce Word/Excel reports combining logged data with narrative analysis, with transparent disclosure of when AI was used",
+            "Implemented JWT authentication with email OTP verification and an immutable audit log for governance and accountability"
+          ]
+        }
+      ],
+      technologies: ["HTML", "CSS", "Bootstrap", "React", "Node.js", "Express", "PostgreSQL", "Socket.IO", "Vite", "REST API", "JWT", "Google Gemini AI", "Leaflet", "Mapbox", "Git"]
+    },
     {
       id: 1,
-      title: "Full Stack Web Developer",
+      title: "Full Stack Web Developer Intern",
       company: "Awrise Internship (Hosted by Dept. of Economic Development & Tourism)",
       period: "Mar 2025 – Mar 2026",
       duration: calculateDuration('2025-03-01', '2026-03-01'),
@@ -49,13 +91,14 @@ const Experience = () => {
         }
       ],
       technologies: ["HTML", "CSS", "Bootstrap", "React", "Node.js", "Express", "PostgreSQL", "REST API", "Git"]
-    }
+    },
+   
   ];
 
   return (
     <section id="experience" className="section section-dark">
       <div className="container-custom">
-        <h2 className="section-title">Work Experience</h2>
+        <h2 className="section-title">Work Experience<EqualizerBars className="title-equalizer" /></h2>
         
         <div className="experience-timeline">
           {experiences.map((exp, index) => (
@@ -66,22 +109,59 @@ const Experience = () => {
                   <span className="company-name">{exp.company}</span>
                 </div>
                 <div className="experience-period">
-                  <span className="period">{exp.period}</span>
-                  <span className="duration">({exp.duration})</span>
+                  <span className="exp-period">{exp.period}</span>
+                  <span className="exp-duration">{exp.duration}</span>
                 </div>
               </div>
               
               <div className="experience-content">
-                {exp.projects.map((project, idx) => (
-                  <div key={idx} className="project-section" style={{marginBottom: '1.5rem'}}>
-                    <h4>{project.name}</h4>
-                    <ul className="responsibilities-list">
-                      {project.responsibilities.map((responsibility, ridx) => (
-                        <li key={ridx}>{responsibility}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+                {exp.projects.map((project, idx) => {
+                  const key = `${exp.id}-${idx}`;
+                  const isExpanded = !!expandedProjects[key];
+                  const hasMore = project.responsibilities.length > RESPONSIBILITIES_PREVIEW_COUNT;
+                  const previewResponsibilities = project.responsibilities.slice(0, RESPONSIBILITIES_PREVIEW_COUNT);
+                  const extraResponsibilities = project.responsibilities.slice(RESPONSIBILITIES_PREVIEW_COUNT);
+
+                  return (
+                    <div key={idx} className="project-section" style={{marginBottom: '1.5rem'}}>
+                      <h4>{project.name}</h4>
+                      <ul className="responsibilities-list">
+                        {previewResponsibilities.map((responsibility, ridx) => (
+                          <li key={ridx}>
+                            <MusicNote className="resp-note-icon" size={12} />
+                            {responsibility}
+                          </li>
+                        ))}
+                      </ul>
+                      {hasMore && (
+                        <div className={`extra-responsibilities ${isExpanded ? 'expanded' : ''}`}>
+                          <ul className="responsibilities-list">
+                            {extraResponsibilities.map((responsibility, ridx) => (
+                              <li key={ridx} style={{ animationDelay: `${ridx * 0.07}s` }}>
+                                <MusicNote className="resp-note-icon" size={12} />
+                                {responsibility}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {hasMore && (
+                        <button
+                          type="button"
+                          className="read-more-btn"
+                          onClick={() => toggleProject(key)}
+                          aria-expanded={isExpanded}
+                        >
+                          {isExpanded ? (
+                            <>Show less <ChevronUp size={14} /></>
+                          ) : (
+                            <>Read more ({project.responsibilities.length - RESPONSIBILITIES_PREVIEW_COUNT} more) <ChevronDown size={14} /></>
+                          )}
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
                 
                 <div className="experience-technologies">
                   <h4>Technologies Used:</h4>
@@ -94,7 +174,7 @@ const Experience = () => {
               </div>
               
               <div className="timeline-connector">
-                <div className="timeline-dot"></div>
+                <div className="timeline-dot"><MusicNote size={10} /></div>
                 {index < experiences.length - 1 && <div className="timeline-line"></div>}
               </div>
             </div>

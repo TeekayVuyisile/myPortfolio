@@ -1,4 +1,6 @@
 import React from 'react';
+import { Telephone } from 'react-bootstrap-icons';
+import EqualizerBars from './EqualizerBars';
 
 const References = () => {
   const references = [
@@ -7,17 +9,17 @@ const References = () => {
       name: "Mr Vernan Van Nel",
       position: "Assistant Director (Supervisor)",
       organization: "Department of Economics Development and Tourism",
-      project: "DEDAT Learner Portal Management System",
-      testimony: "Teekay demonstrated exceptional skill in developing our learner management system. His attention to detail and understanding of our requirements resulted in a solution that significantly improved our operational efficiency.",
+      projects: ["DEDAT Learner Portal Management System", "Programme Delivery Dashboard"],
+      testimony: "Teekay demonstrated exceptional skill in developing both our learner management system and our programme delivery dashboard. His attention to detail and understanding of our requirements resulted in solutions that significantly improved our operational efficiency.",
       contact: "073 739 5614"
     },
-   
+
     {
       id: 2,
       name: "Miss Florence Kalipa",
       position: "Programme Director",
       organization: "Awrise",
-      project: "Awrise Intervention Management System",
+      projects: ["Awrise Intervention Management System"],
       testimony: "Teekay's technical expertise and problem-solving skills were crucial in developing our intervention tracking system. He consistently delivered high-quality work and was responsive to our evolving needs throughout the project.",
       contact: "083 498 7344"
     }
@@ -26,7 +28,7 @@ const References = () => {
   return (
     <section id="references" className="section section-dark">
       <div className="container-custom">
-        <h2 className="section-title">Client References</h2>
+        <h2 className="section-title">Client References<EqualizerBars className="title-equalizer" /></h2>
         <p className="section-subtitle">
           Feedback from clients and projects I've worked on
         </p>
@@ -45,17 +47,20 @@ const References = () => {
                 </div>
               </div>
               
-              <div className="reference-project">
-                <strong>Project:</strong> {ref.project}
+              <div className="reference-projects">
+                {ref.projects.map((project, pIdx) => (
+                  <span key={pIdx} className="reference-project-tag">{project}</span>
+                ))}
               </div>
-              
+
               <div className="reference-testimony">
                 <div className="quote-icon">"</div>
                 <p>{ref.testimony}</p>
               </div>
-              
+
               <div className="reference-contact">
-                <strong>Contact:</strong> {ref.contact}
+                <Telephone size={13} />
+                {ref.contact}
               </div>
             </div>
           ))}

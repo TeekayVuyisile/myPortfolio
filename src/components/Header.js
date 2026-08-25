@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { 
-  List, 
-  X, 
-  House, 
-  Person,  
+import {
+  List,
+  X,
+  House,
+  Person,
   Folder,
-  Lightbulb, 
+  Lightbulb,
   Briefcase,
-  Mortarboard, 
+  Mortarboard,
   Envelope,
   Github,
   Linkedin,
-  
+  MoonStarsFill,
+  SunFill,
+
 } from 'react-bootstrap-icons';
 
 const Header = () => {
@@ -85,7 +87,7 @@ const Header = () => {
             >
               <div className="theme-toggle-track">
                 <div className="theme-toggle-thumb">
-                  {isDarkMode ? '🌙' : '☀️'}
+                  {isDarkMode ? <MoonStarsFill size={12} /> : <SunFill size={12} />}
                 </div>
               </div>
             </button>
@@ -105,8 +107,18 @@ const Header = () => {
       {/* Mobile Sidebar */}
       <div className={`mobile-sidebar ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-sidebar-header">
-          <div className="mobile-sidebar-brand">
-            <a href="#home" onClick={handleLinkClick}>Teekay Manale</a>
+          <div className="mobile-sidebar-header-top">
+            <div className="mobile-sidebar-brand">
+              <a href="#home" onClick={handleLinkClick}>Teekay Manale</a>
+            </div>
+            <button
+              type="button"
+              className="mobile-sidebar-close"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={20} />
+            </button>
           </div>
           {/*Sidebar header */}
           <div className="mobile-sidebar-social">

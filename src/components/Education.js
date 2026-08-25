@@ -1,4 +1,5 @@
 import React from 'react';
+import EqualizerBars from './EqualizerBars';
 
 const Education = () => {
   const education = [
@@ -7,7 +8,7 @@ const Education = () => {
       degree: "Diploma in Information & Communication Technology",
       institution: "Sol Plaatje University",
       period: "2022 - 2024",
-      description: "Comprehensive program covering software development fundamentals, agile methodologies, and practical programming skills.",
+      description: "A tertiary qualification in Information & Communication Technology covering software development fundamentals, agile methodologies, and practical programming skills. It built a strong academic foundation in system analysis, database design, and full-stack development practices.",
       achievements: [
         "Software Development Life Cycle (SDLC)",
         "Agile & Scrum Methodologies",
@@ -15,7 +16,12 @@ const Education = () => {
         "Database Design & Management",
         "Web Development Fundamentals",
         "System Analysis & Design",
-        "Javascript, PHP, Python, Java, My SQL Workbench "
+        "Android Studio Development",
+        "HTML, CSS, JavaScript",
+        "PHP",
+        "Python",
+        "Java",
+        "MySQL Workbench, MongoDB, PostgreSQL",
       ],
       type: "formal"
     },
@@ -24,11 +30,13 @@ const Education = () => {
       degree: "The Complete Full-Stack Web Development Bootcamp",
       institution: "Udemy",
       period: "2025",
-      description: "Intensive practical training in modern full-stack development technologies and real-world project implementation.",
+      description: "Intensive practical training in modern full-stack development technologies and real-world project implementation. The bootcamp emphasized hands-on coding, deployment workflows, and building production-ready applications from scratch.",
       achievements: [
         "Advanced React & JavaScript",
         "Node.js & Express Framework",
         "RESTful API Development",
+        "Web3 & Blockchain Integration",
+        "DApps Development",
         "Database Integration",
         "Authentication & Authorization",
         "Deployment & DevOps Basics"
@@ -37,10 +45,26 @@ const Education = () => {
     },
     {
       id: 3,
+      degree: "System Design Masterclass(2026) | From FAANGInsiders",
+      institution: "Udemy",
+      period: "2026",
+      description: "In-depth study of large-scale system design principles used in high-traffic production systems and FAANG-style technical interviews. The course focused on designing for scale, reliability, and performance under real-world constraints.",
+      achievements: [
+        "Scalability & Load Balancing",
+        "Caching Strategies (CDN, Redis)",
+        "Database Sharding & Replication",
+        "Microservices Architecture",
+        "Distributed Systems & CAP Theorem",
+        "Message Queues & Event-Driven Design"
+      ],
+      type: "certification"
+    },
+    {
+      id: 4,
       degree: "CloudSec AWS Bootcamp",
-      institution: "Cloud Security Training",
+      institution: "CloudSec Network",
       period: "2025",
-      description: "Specialized training in AWS cloud computing with focus on security and scalable infrastructure.",
+      description: "Specialized training in AWS cloud computing with a focus on security and scalable infrastructure. The program covered deploying, securing, and monitoring cloud-native applications using industry best practices.",
       achievements: [
         "AWS Core Services (EC2, S3, RDS)",
         "Cloud Security Fundamentals",
@@ -64,7 +88,7 @@ const Education = () => {
   return (
     <section id="education" className="section section-light">
       <div className="container-custom">
-        <h2 className="section-title">Education & Certifications</h2>
+        <h2 className="section-title">Education & Certifications<EqualizerBars className="title-equalizer" /></h2>
         
         <div className="education-grid">
           {education.map((edu, index) => (

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin } from 'react-bootstrap-icons';
+import { Github, Linkedin, ChevronDown } from 'react-bootstrap-icons';
+import EqualizerBars from './EqualizerBars';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -10,6 +11,8 @@ const Hero = () => {
   // Move titles inside the component and memoize it
   const titles = React.useMemo(() => [
     'Full Stack Software Developer',
+    'Real-Time Systems Builder',
+    'Turning Ideas Into Code',
   ], []);
 
   useEffect(() => {
@@ -46,7 +49,7 @@ const Hero = () => {
             </h1>
             <h2 className="hero-subtitle">
               <span className="typing-text">{text}</span>
-              <span className="typing-cursor">|</span>
+              <span className="typing-cursor"></span>
             </h2>
             <p className="hero-description">
               I create digital solutions that blend innovative technology with 
@@ -54,7 +57,10 @@ const Hero = () => {
               and transforming ideas into reality through code.
             </p>
             <div className="hero-buttons">
-              <a href="#projects" className="btn btn-primary">View My Work</a>
+              <a href="#projects" className="btn btn-primary">
+                View My Work
+                <EqualizerBars className="btn-equalizer" count={3} />
+              </a>
               <div className="social-button-group">
                 <a href="#contact" className="btn btn-secondary">Get In Touch</a>
                 <div className="social-icons">
@@ -81,20 +87,30 @@ const Hero = () => {
             </div>
           </div>
           <div className="hero-image">
-            <div className="profile-image-container static-profile">
-              <img 
-                src="/images/profile.jpeg" 
-                alt="Teekay Vuyisile Manale"
-                className="profile-image"
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/400x400/0066ff/ffffff?text=TVM';
-                }}
-              />
-              <div className="image-glow-static"></div>
+            <div className="wave-frame">
+              <span className="wave-ring" aria-hidden="true"></span>
+              <span className="wave-ring" aria-hidden="true"></span>
+              <span className="wave-ring" aria-hidden="true"></span>
+              <div className="wave-photo-ring">
+                <img
+                  src="/images/profile.jpeg"
+                  alt="Teekay Vuyisile Manale"
+                  className="wave-photo"
+                  onError={(e) => {
+                    e.target.src = 'https://via.placeholder.com/400x400/0066ff/ffffff?text=TVM';
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <a href="#about" className="scroll-indicator" aria-label="Scroll to About section">
+        <span className="scroll-indicator-bars">
+          <span></span><span></span><span></span>
+        </span>
+        <ChevronDown size={16} />
+      </a>
     </section>
   );
 };
