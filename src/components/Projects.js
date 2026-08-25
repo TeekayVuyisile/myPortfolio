@@ -67,7 +67,7 @@ const Projects = () => {
       image: "/images/logo9.png",
       technologies: ["React", "Vite", "Bootstrap 5", "Leaflet", "Zustand", "Supabase", "OpenRouteService", "Web Speech API"],
       githubLink: "https://github.com/TeekayVuyisile/Field-Route-Optimization-Site-Verification-System",
-      demoLink: "https://field-route-optimization-site-verif.vercel.app/login",
+      demoLink: "https://field-route-optimization-site-verif.vercel.app/",
       features: [
         "Hands-Free Navigation with voice guidance",
         "Auto-Pilot Rerouting & re-optimization",
