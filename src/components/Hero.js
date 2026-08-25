@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, ChevronDown } from 'react-bootstrap-icons';
-import EqualizerBars from './EqualizerBars';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -11,8 +10,6 @@ const Hero = () => {
   // Move titles inside the component and memoize it
   const titles = React.useMemo(() => [
     'Full Stack Software Developer',
-    'Real-Time Systems Builder',
-    'Turning Ideas Into Code',
   ], []);
 
   useEffect(() => {
@@ -59,7 +56,6 @@ const Hero = () => {
             <div className="hero-buttons">
               <a href="#projects" className="btn btn-primary">
                 View My Work
-                <EqualizerBars className="btn-equalizer" count={3} />
               </a>
               <div className="social-button-group">
                 <a href="#contact" className="btn btn-secondary">Get In Touch</a>

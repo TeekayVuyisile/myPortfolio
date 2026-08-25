@@ -400,26 +400,6 @@ html {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.btn-equalizer {
-  height: 14px;
-  opacity: 0;
-  transform: scaleX(0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.btn-primary:hover .btn-equalizer {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-.btn-equalizer span {
-  background: white;
-}
-
-.btn-equalizer span:nth-child(1) { height: 45%; }
-.btn-equalizer span:nth-child(2) { height: 100%; }
-.btn-equalizer span:nth-child(3) { height: 65%; }
-
 /* Static Profile Image Styles - No animation */
 .hero-image {
   display: flex;
