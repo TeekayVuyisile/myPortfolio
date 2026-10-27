@@ -21,6 +21,11 @@ export const ThemeProvider = ({ children }) => {
     }
   }, []);
 
+  // Mirror the theme on <html> so the page background behind overscroll matches
+  useEffect(() => {
+    document.documentElement.dataset.theme = isDarkMode ? 'dark' : 'light';
+  }, [isDarkMode]);
+
   const toggleTheme = () => {
     setIsDarkMode(prev => {
       const newTheme = !prev;
