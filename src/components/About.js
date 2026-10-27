@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import EqualizerBars from "./EqualizerBars";
 
 const stats = [
-  { id: 1, value: 5, suffix: "+", label: "Projects Completed" },
+  { id: 1, value: 8, suffix: "", label: "Live Projects" },
   { id: 2, value: 3, suffix: "", label: "Client Systems" },
   { id: 3, value: 6, suffix: "+", label: "Technologies" },
   { id: 4, value: 100, suffix: "%", label: "Client Satisfaction" },

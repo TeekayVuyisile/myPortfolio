@@ -1,111 +1,176 @@
-import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, ChevronDown } from 'react-bootstrap-icons';
+import React, { Suspense, lazy } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Github, Linkedin, ArrowRight } from 'react-bootstrap-icons';
+import { useTheme } from '../context/ThemeContext';
+import { usePlayback } from '../context/PlaybackContext';
+
+// three.js is only downloaded once the rest of the page has loaded
+const Turntable3D = lazy(() => import('./Turntable3D'));
+
+const hasWebGL = () => {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(canvas.getContext('webgl2') || canvas.getContext('webgl'));
+  } catch {
+    return false;
+  }
+};
+
+// Flat spinning record used while the 3D scene loads, or if WebGL is unavailable
+const RecordFallback = () => (
+  <div className="record-fallback" aria-hidden="true">
+    <div className="record-fallback-disc ambient">
+      <img src="/assets/profile.jpeg" alt="" />
+    </div>
+  </div>
+);
+
+class SceneBoundary extends React.Component {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  render() {
+    return this.state.failed ? <RecordFallback /> : this.props.children;
+  }
+}
+
+const FLOATING_CHIPS = [
+  { label: 'React', className: 'chip-a' },
+  { label: 'Node.js', className: 'chip-b' },
+  { label: 'PostgreSQL', className: 'chip-c' },
+];
+
+const NAME_LINES = [
+  { text: 'Teekay' },
+  { accent: 'Vuyisile', text: 'Manale' },
+];
 
 const Hero = () => {
-  const [text, setText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const { isDarkMode } = useTheme();
+  const { isPlaying } = usePlayback();
+  const [webgl] = React.useState(hasWebGL);
 
-  // Move titles inside the component and memoize it
-  const titles = React.useMemo(() => [
-    'Full Stack Software Developer',
-  ], []);
-
-  useEffect(() => {
-    const handleTyping = () => {
-      const i = loopNum % titles.length;
-      const fullText = titles[i];
-
-      setText(isDeleting 
-        ? fullText.substring(0, text.length - 1)
-        : fullText.substring(0, text.length + 1)
-      );
-
-      setTypingSpeed(isDeleting ? 100 : 200);
-
-      if (!isDeleting && text === fullText) {
-        setTimeout(() => setIsDeleting(true), 2000);
-      } else if (isDeleting && text === '') {
-        setIsDeleting(false);
-        setLoopNum(loopNum + 1);
-      }
-    };
-
-    const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, typingSpeed, titles]);
+  const { scrollY } = useScroll();
+  const stageY = useTransform(scrollY, [0, 700], [0, 140]);
+  const stageScale = useTransform(scrollY, [0, 700], [1, 0.85]);
+  const copyY = useTransform(scrollY, [0, 700], [0, -60]);
+  const fade = useTransform(scrollY, [0, 550], [1, 0]);
 
   return (
     <section id="home" className="hero-section">
-      <div className="container-custom py-3">
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1 className="hero-title">
-              Hi, I'm <span className="text-gradient">Teekay Vuyisile Manale</span>
-            </h1>
-            <h2 className="hero-subtitle">
-              <span className="typing-text">{text}</span>
-              <span className="typing-cursor"></span>
-            </h2>
-            <p className="hero-description">
-              I create digital solutions that blend innovative technology with 
-              user-centered design. Passionate about building scalable applications 
-              and transforming ideas into reality through code.
-            </p>
-            <div className="hero-buttons">
-              <a href="#projects" className="btn btn-primary">
-                View My Work
-              </a>
-              <div className="social-button-group">
-                <a href="#contact" className="btn btn-secondary">Get In Touch</a>
-                <div className="social-icons">
-                  <a 
-                    href="https://github.com/TeekayVuyisile" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    title="GitHub"
-                  >
-                    <Github size={20} />
-                  </a>
-                  <a 
-                    href="https://linkedin.com/in/teekay-manale" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    title="LinkedIn"
-                  >
-                    <Linkedin size={20} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="hero-image">
-            <div className="wave-frame">
-              <span className="wave-ring" aria-hidden="true"></span>
-              <span className="wave-ring" aria-hidden="true"></span>
-              <span className="wave-ring" aria-hidden="true"></span>
-              <div className="wave-photo-ring">
-                <img
-                  src="/images/profile.jpeg"
-                  alt="Teekay Vuyisile Manale"
-                  className="wave-photo"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/400x400/0066ff/ffffff?text=TVM';
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="hero-sky" aria-hidden="true">
+        <div className="hero-stars stars-sm ambient"></div>
+        <div className="hero-stars stars-md ambient"></div>
+        <div className="hero-stars stars-lg ambient"></div>
+        <svg className="hero-dome" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMin slice">
+          <path d="M600 -40 L80 820 M600 -40 L340 820 M600 -40 L600 820 M600 -40 L860 820 M600 -40 L1120 820" />
+          <path d="M-40 260 Q600 120 1240 260 M-40 520 Q600 380 1240 520" />
+        </svg>
+        <div className="hero-moon"></div>
       </div>
-      <a href="#about" className="scroll-indicator" aria-label="Scroll to About section">
-        <span className="scroll-indicator-bars">
-          <span></span><span></span><span></span>
-        </span>
-        <ChevronDown size={16} />
+
+      <div className="container-custom hero-layout">
+        <motion.div className="hero-copy" style={{ y: copyY, opacity: fade }}>
+          <motion.p
+            className="hero-eyebrow"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <span className="eyebrow-dot" aria-hidden="true"></span>
+            Full Stack Software Developer
+          </motion.p>
+
+          <h1 className="hero-name" aria-label="Teekay Vuyisile Manale">
+            {NAME_LINES.map((line, i) => (
+              <span className="hero-name-line" key={line.text} aria-hidden="true">
+                <motion.span
+                  initial={{ y: '110%' }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.9, delay: 0.2 + i * 0.14, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {line.accent && <em className="hero-name-accent">{line.accent} </em>}
+                  {line.text}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
+
+          <motion.p
+            className="hero-lede"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.65 }}
+          >
+            I create digital solutions that blend innovative technology with
+            user-centered design — building scalable applications and turning
+            ideas into products people use every day.
+          </motion.p>
+
+          <motion.div
+            className="hero-actions"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8 }}
+          >
+            <a href="#projects" className="hero-cta hero-cta-primary">
+              View My Work <ArrowRight size={16} />
+            </a>
+            <a href="#contact" className="hero-cta hero-cta-ghost">Get In Touch</a>
+            <div className="hero-socials">
+              <a
+                href="https://github.com/TeekayVuyisile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-social"
+                aria-label="GitHub"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href="https://linkedin.com/in/teekay-manale"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-social"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="hero-stage"
+          style={{ y: stageY, scale: stageScale, opacity: fade }}
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="hero-stage-glow" aria-hidden="true"></div>
+          {webgl ? (
+            <SceneBoundary>
+              <Suspense fallback={<RecordFallback />}>
+                <Turntable3D isPlaying={isPlaying} isDarkMode={isDarkMode} />
+              </Suspense>
+            </SceneBoundary>
+          ) : (
+            <RecordFallback />
+          )}
+          {FLOATING_CHIPS.map(chip => (
+            <span key={chip.label} className={`hero-chip ${chip.className} ambient`} aria-hidden="true">
+              {chip.label}
+            </span>
+          ))}
+        </motion.div>
+      </div>
+
+      <a href="#about" className="hero-scroll" aria-label="Scroll to About section">
+        <span className="hero-scroll-line ambient"></span>
+        Scroll
       </a>
     </section>
   );

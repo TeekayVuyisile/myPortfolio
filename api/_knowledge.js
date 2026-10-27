@@ -16,13 +16,14 @@ responsive, user-friendly web applications. He is skilled in front-end and back-
 database management, and cloud technologies. He follows Agile methodologies, focuses on clean
 code principles, and prioritizes user-centered design in his projects.
 
-Quick stats: 5+ projects completed, 3 client systems delivered, 6+ technologies used regularly,
+Quick stats: 8 personal projects deployed live, 3 client systems delivered, 6+ technologies used regularly,
 100% client satisfaction on delivered work.
 
 WORK EXPERIENCE
 
 1. Junior Full Stack Web Developer — Department of Economic Development & Tourism (DEDAT)
    May 2026 - Present
+   - Hired full-time by DEDAT after completing the internship below.
    - Maintains and supports the internal Learning Management System (LMS) built during his
      internship: resolving bugs, handling feature requests, monitoring performance and reliability,
      and shipping updates across the React frontend and Node.js/PostgreSQL backend.
@@ -54,63 +55,86 @@ WORK EXPERIENCE
      interfaces and Node.js (REST API) + PostgreSQL backend services.
    - Technologies: HTML, CSS, Bootstrap, React, Node.js, Express, PostgreSQL, REST API, Git.
 
-FEATURED PROJECTS
+PERSONAL PROJECTS (listed strongest first; all are personal builds, deployed live with a GitHub repo.
+His work systems at DEDAT and Awrise are described under WORK EXPERIENCE above, not here.)
 
-1. Programme Delivery Dashboard (Work project, currently being built/extended, in active daily
-   internal use at DEDAT). Real-time collaborative dashboard for portfolio, task, KPI, and risk
-   management, built solo end-to-end. Tech: React, Node.js, Express, PostgreSQL, Socket.IO, Google
-   Gemini AI. Not publicly deployed (internal use).
+1. Tender Insight Hub (eTender system). Multi-tenant SaaS helping South African SMEs find public
+   tenders, understand the bid documents and assess where they can win, built on live National
+   Treasury OCDS eTenders data synced every 6 hours. AI summaries of 50-150 page bid packs (PyMuPDF,
+   python-docx, Groq LLM, validated with Pydantic); a transparent rule-based readiness score (CIDB,
+   province, B-BBEE, experience, certifications, briefings); team workspace with bid pipeline, tasks
+   and reminders; Free/Basic/Pro plans enforced on the server; public REST API with hashed API keys
+   and rate limits. Redis is used for caching (searches ~1.2 s down to ~0.4 s), shared rate limits,
+   and a Redis Stream job queue that survives restarts and shares one Groq token budget. Runs as a
+   Docker Compose stack (nginx, FastAPI API, worker, PostgreSQL, MongoDB, Redis). 225 pytest tests;
+   GitHub Actions CI with a SQLite/PostgreSQL matrix, migration drift checks and Docker image builds.
+   Tech: Python, FastAPI, SQLAlchemy, Alembic, React 19, TypeScript, Tailwind CSS, TanStack Query,
+   PostgreSQL, MongoDB, Redis, Docker, GitHub Actions, Render.
+   Live: https://tender-insight-hub.onrender.com | Code: github.com/TeekayVuyisile/etender_system
 
-2. Field Route Optimization & Site Verification System (Pro Edition) (Personal project). A
-   professional-grade field operations web app for WiFi/Telecom site verification and infrastructure
-   inspections: hands-free voice-guided navigation, auto-pilot rerouting, photo evidence system with
-   background sync, digital site logbooks, field-grade GPS filtering. Tech: React, Vite, Bootstrap 5,
-   Leaflet, Zustand, Supabase, OpenRouteService, Web Speech API. Live demo and GitHub repo available.
+2. SPU Events. Campus events platform for Sol Plaatje University in a TypeScript monorepo: event
+   discovery, campus wallet payments, HMAC-signed QR tickets (work offline), phone-camera gate
+   scanning, live check-in counts via server-sent events, admin dashboard, moderation and audit log.
+   Money is an append-only ledger in integer cents; check-in is a single conditional UPDATE so two
+   gates can't admit the same ticket (proven by a concurrency test); fixed a real overselling bug
+   caused by PostgreSQL READ COMMITTED snapshots. Shared Zod schemas, axe-core accessibility checks.
+   Tech: TypeScript, React 19, Express 5, Drizzle ORM, PostgreSQL (Neon), Zod, Tailwind CSS, Vitest,
+   Supertest, GitHub Actions, Render.
+   Live: https://spu-events.onrender.com | Code: github.com/TeekayVuyisile/spu-events
 
-3. DEDAT Internal LMS (Work project). Internal Learning Management System for course and user
-   management at DEDAT, with authentication and role-based access control. Tech: React, Bootstrap,
-   Node.js, Express, PostgreSQL. Deployed internally, not publicly accessible.
+3. RouteOps: Field Route Optimization & Site Verification System. Mobile-first, installable,
+   offline-first PWA for field teams: CSV/Excel site import, route optimization via OpenRouteService
+   (up to 70 stops, with a local fallback), voice-guided driver mode, GPS-verified check-ins,
+   checklists, compressed photo evidence, an IndexedDB offline outbox, trip reports to CSV/PDF.
+   Supabase with row-level security per team. 300+ Vitest tests plus SQL tests in Docker; GitHub
+   Actions CI. Tech: React 19, Vite, Zustand, Tailwind CSS, Leaflet, OpenRouteService, Supabase,
+   Vercel Functions.
+   Live: https://field-route-optimization-site-verif.vercel.app | Code:
+   github.com/TeekayVuyisile/Field-Route-Optimization-Site-Verification-System
 
-4. Awrise Intervention Management System (Work project). Educational intervention platform for
-   tracking learner assessments, materials, and monthly attendance with digital sign-offs, plus
-   performance analytics dashboards. Tech: React, Bootstrap, Node.js, Express, PostgreSQL, REST API.
-   Deployed internally, not publicly accessible.
+4. SignConnect. Accessible real-time video calling for Deaf and hearing people (built with South
+   African Sign Language in mind): peer-to-peer WebRTC calls, live speech captions, on-device hand
+   sign recognition with MediaPipe (no video uploaded), typed messages and read-aloud, sign lessons
+   with a camera practice mode, WCAG AA design. The server only handles accounts and Socket.IO
+   signaling. The current sign vocabulary is demo gestures; a proper SASL model is the next phase.
+   Tech: React, WebRTC, Socket.IO, MediaPipe, Web Speech API, Node.js, Express, SQLite, Tailwind CSS.
+   Live: https://signconnect-app.onrender.com | Code: github.com/TeekayVuyisile/SignConnect
 
-5. AI Mock Interview Coach (Personal project). AI-powered, voice-driven mock interview simulator:
-   upload a CV and job description for tailored questions, voice-to-voice interaction, real-time
-   transcripts, and an AI feedback dashboard scoring confidence and technical depth. Tech: React,
-   Bootstrap, Framer Motion, Vercel Serverless, Google Gemini, Web Speech API. Live demo and GitHub
-   repo available.
+5. EduLens LMS. Multi-school learning management system for South African Foundation Phase
+   (Grade R-3): CAPS-aligned marks on the 7-level scale, parent access, AI-generated worksheets
+   (Groq with model fallback), invite-only accounts with hashed single-use tokens, Excel register
+   import with validation, school-scoped data isolation verified by security tests, and security
+   hardening since the MVP (SQL injection, XSS and stored-password fixes). GitHub Actions CI.
+   Tech: React 19, Node.js, Express 5, PostgreSQL (Neon), Groq, React Bootstrap, Render.
+   Live: https://edulens-lms.onrender.com | Code: github.com/TeekayVuyisile/edulens_mvp
 
-6. Mafia: The Underground Society (Personal project). A cinematic, realtime multiplayer social
-   deduction (Mafia-style) party game with a noir/glassmorphism UI, Socket.io-driven phase
-   transitions/voting/chat, a text-to-speech AI narrator, and reconnection support for identity
-   persistence. Tech: React, Framer Motion, Bootstrap 5, Socket.io, Node.js, Express, Supabase. Live
-   demo and GitHub repo available.
+6. AI Travel Planner. Group trip planner: weather-aware AI itineraries (Groq with strict JSON
+   schemas), places verified on OpenStreetMap, packing lists with reasons, group roles and voting,
+   multi-currency shared expenses with minimal settle-up, a streaming trip assistant, PDF export,
+   fallbacks for every external API. 56 tests, GitHub Actions CI. Tech: React 19, Node.js, Express,
+   PostgreSQL, Groq, Leaflet, Tailwind CSS, TanStack Query.
+   Live: https://ai-travel-assistant-cp6l.onrender.com | Code: github.com/TeekayVuyisile/AI-Travel-Planner
 
-7. EduLens LMS (Personal project). Role-based Learning Management System for primary schools
-   (Grade R-3) with distinct admin/teacher/learner interfaces, assessment tracking, performance
-   analytics, academic progression tracking, and AI-powered worksheet generation aligned to
-   curriculum. Tech: React, Bootstrap, Node.js, Express, PostgreSQL. GitHub repo available.
+7. Mafia: The Underground Society. Real-time multiplayer social deduction game for 4-10 players:
+   secret roles, private Mafia and graveyard chats, text-to-speech narrator, server-authoritative
+   state with session-authenticated sockets, restart-proof rooms persisted to PostgreSQL, email and
+   Google sign-in (Better Auth), XP, ranks and a leaderboard. Tech: React, Socket.IO, Node.js,
+   Express 5, PostgreSQL (Neon), Better Auth, Framer Motion, Bootstrap.
+   Live: https://mafia-game-opal.vercel.app | Code: github.com/TeekayVuyisile/mafia-game
 
-8. Event Management System (Personal project). Full-stack event platform covering event creation,
-   ticketing and validation, QR-code based check-in, wallet management for payments, and attendee
-   registration. Tech: EJS, Bootstrap, Node.js, Express, PostgreSQL. GitHub repo available.
-
-9. AI Travel Planner (Personal project). AI-powered travel planning app generating personalized
-   itineraries based on preferences, budget, and travel style, integrating live weather and maps
-   data. Tech: React, Bootstrap, Node.js, Express, OpenWeatherMap, ExchangeRate-API, PostgreSQL.
-   GitHub repo available.
-
-10. To-Do List Application (Personal project). Full-stack task management app with secure user
-    authentication, a task statistics dashboard, deadline-based status tracking, and full CRUD via
-    RESTful APIs. Tech: React, Bootstrap, Node.js, Express, PostgreSQL. GitHub repo available.
+8. AI Mock Interview Coach. Voice-driven mock interviews: questions tailored to an uploaded CV and
+   job description (Google Gemini), spoken questions and live transcripts (Web Speech API), scored
+   feedback across five categories. CVs are parsed in serverless functions and never stored.
+   Tech: React, Vite, Vercel Serverless, Google Gemini, Web Speech API, Framer Motion.
+   Live: https://ai-mock-interview-coach-orpin.vercel.app | Code:
+   github.com/TeekayVuyisile/AI-Mock-Interview-Coach
 
 SKILLS & TECHNOLOGIES (self-rated proficiency out of 100)
-Frontend: React (90), Next.js (90), JavaScript (85), Bootstrap (80), Tailwind CSS (80)
-Backend: Node.js (85), Express (80), Python (70), REST API design (85), WebSockets/Socket.IO (85)
-Database: PostgreSQL (80), MySQL (75), MongoDB (75)
-Tools & Platforms: Postman (80), Git & GitHub (80), AWS (60)
+Frontend: React (90), TypeScript (80), JavaScript (90), Tailwind CSS (85), Bootstrap (80)
+Backend: Node.js (85), Express (85), Python (75), FastAPI (75), REST APIs (85), LLM integration (80)
+Real-Time & Data: Socket.IO (85), WebRTC (70), PostgreSQL (85), MongoDB (70), Redis (70)
+DevOps & Testing: Docker (75), CI/CD with GitHub Actions (80), Git & GitHub (85),
+  automated testing with pytest/Vitest (75), AWS (60)
 
 EDUCATION & CERTIFICATIONS
 
