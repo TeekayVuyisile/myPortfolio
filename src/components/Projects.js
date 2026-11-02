@@ -8,7 +8,8 @@ import {
   PlayCircle,
   InfoCircle,
   Github,
-  ArrowRight
+  ArrowRight,
+  CameraVideo
 } from 'react-bootstrap-icons';
 
 const TAG_LABELS = {
@@ -156,6 +157,8 @@ const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [activeFilter, setActiveFilter] = useState('all');
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+  const videoPanel = useRef(null);
 
   // Ordered strongest first: recruiters tend to open the first few projects only
   const allProjects = [
@@ -193,6 +196,11 @@ const Projects = () => {
       logoDisclaimer: "The Sol Plaatje University logo displayed is the property of its respective owner and is used here for demonstration purposes only.",
       githubLink: "https://github.com/TeekayVuyisile/spu-events",
       demoLink: "https://spu-events.onrender.com/",
+      demoVideo: {
+        src: "/assets/spu-events-demo.mp4",
+        poster: "/assets/spu-events-demo-poster.webp",
+        caption: "Ticket scanning: a student on a laptop and gate staff on a phone, from Admit to the wrong-ticket cases."
+      },
       features: [
         "Signed QR tickets with double-scan protection proven by a concurrency test",
         "Wallet built as an append-only ledger with idempotent top-ups and automatic refunds",
@@ -337,11 +345,13 @@ const Projects = () => {
   const openModal = (project) => {
     setActiveProject(project);
     setShowDisclaimer(false);
+    setShowVideo(false);
   };
 
   const closeModal = () => {
     setActiveProject(null);
     setShowDisclaimer(false);
+    setShowVideo(false);
   };
 
   const goToProject = (offset) => {
@@ -349,7 +359,15 @@ const Projects = () => {
     const nextIndex = (activeIndex + offset + filteredProjects.length) % filteredProjects.length;
     setActiveProject(filteredProjects[nextIndex]);
     setShowDisclaimer(false);
+    setShowVideo(false);
   };
+
+  // The player opens below the fold on small screens, so bring it into view
+  useEffect(() => {
+    if (showVideo && videoPanel.current) {
+      videoPanel.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, [showVideo]);
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -387,6 +405,17 @@ const Projects = () => {
             <strong>Live Demo</strong>
             <span>Opens the deployed app</span>
           </div>
+          {project.demoVideo && (
+            <button
+              type="button"
+              className="code-btn"
+              onClick={() => setShowVideo(open => !open)}
+              aria-expanded={showVideo}
+            >
+              <CameraVideo size={16} />
+              {showVideo ? 'Hide Video' : 'Watch Demo'}
+            </button>
+          )}
           {project.githubLink && (
             <a
               className="code-btn"
@@ -554,6 +583,20 @@ const Projects = () => {
                     {renderActionRow(activeProject)}
                   </div>
                 </div>
+
+                {showVideo && activeProject.demoVideo && (
+                  <figure className="modal-video" ref={videoPanel}>
+                    <video
+                      src={activeProject.demoVideo.src}
+                      poster={activeProject.demoVideo.poster}
+                      controls
+                      autoPlay
+                      muted
+                      playsInline
+                    />
+                    <figcaption>{activeProject.demoVideo.caption}</figcaption>
+                  </figure>
+                )}
 
                 {/* Compact Permission Note in Modal */}
                 {activeProject.permissionNote && (

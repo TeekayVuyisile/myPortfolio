@@ -29,3 +29,5 @@ Thumbs.db
 
 # Claude Code local tooling config (machine-local, not project code)
 .claude/
+.agents/
+AGENTS.md

@@ -1625,6 +1625,31 @@ html {
   color: var(--primary-blue);
 }
 
+button.code-btn {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Inline demo video, opened from the action row */
+.modal-video {
+  margin: 0 0 1.75rem;
+}
+
+.modal-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg);
+}
+
+.modal-video figcaption {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
 .status-pill {
   display: inline-flex;
   align-items: center;
