@@ -175,6 +175,11 @@ const Projects = () => {
       image: "/assets/tender-insight-hub.webp",
       githubLink: "https://github.com/TeekayVuyisile/etender_system",
       demoLink: "https://tender-insight-hub.onrender.com/",
+      demoVideo: {
+        src: "/assets/tender-insight-hub-demo.mp4",
+        poster: "/assets/tender-insight-hub-demo-poster.webp",
+        caption: "A 1.5-minute tour: searching live government tenders, the AI summary of a bid pack, the readiness score and the team workspace."
+      },
       features: [
         "AI summaries of 50 to 150 page bid documents, validated into structured requirements",
         "Rule-based readiness score with a line-by-line checklist against the company profile",
@@ -261,6 +266,11 @@ const Projects = () => {
       image: "/assets/edulens.webp",
       githubLink: "https://github.com/TeekayVuyisile/edulens_mvp",
       demoLink: "https://edulens-lms.onrender.com/",
+      demoVideo: {
+        src: "/assets/edulens-demo.mp4",
+        poster: "/assets/edulens-demo-poster.webp",
+        caption: "A 1.5-minute tour: a teacher capturing marks and generating an AI worksheet, the school admin's reports and year end, and the parent view."
+      },
       features: [
         "Roles for super admin, school admin, teacher and parent",
         "CAPS-aligned marks with a 7-level achievement scale and progress tracking",
@@ -281,6 +291,11 @@ const Projects = () => {
       image: "/assets/ai-travel-planner.webp",
       githubLink: "https://github.com/TeekayVuyisile/AI-Travel-Planner",
       demoLink: "https://ai-travel-assistant-cp6l.onrender.com/",
+      demoVideo: {
+        src: "/assets/ai-travel-planner-demo.mp4",
+        poster: "/assets/ai-travel-planner-demo-poster.webp",
+        caption: "A 2-minute tour: planning a trip, the AI itinerary and map, the packing list, the trip assistant and shared expenses."
+      },
       features: [
         "AI itineraries that adapt to rain and wind in the forecast",
         "Suggested places verified on OpenStreetMap before they're pinned",
@@ -301,6 +316,11 @@ const Projects = () => {
       image: "/assets/mafia.webp",
       githubLink: "https://github.com/TeekayVuyisile/mafia-game",
       demoLink: "https://mafia-game-opal.vercel.app/",
+      demoVideo: {
+        src: "/assets/mafia-demo.mp4",
+        poster: "/assets/mafia-demo-poster.webp",
+        caption: "A full game in 90 seconds: the lobby, secret roles, night actions, the live town chat, voting and the final reveal."
+      },
       features: [
         "Full night and day cycle with host-controlled timers and voting rules",
         "Private Mafia channel and a graveyard chat for eliminated players",

@@ -70,6 +70,7 @@ His work systems at DEDAT and Awrise are described under WORK EXPERIENCE above, 
    GitHub Actions CI with a SQLite/PostgreSQL matrix, migration drift checks and Docker image builds.
    Tech: Python, FastAPI, SQLAlchemy, Alembic, React 19, TypeScript, Tailwind CSS, TanStack Query,
    PostgreSQL, MongoDB, Redis, Docker, GitHub Actions, Render.
+   A captioned demo video plays from the "Watch Demo" button in this project's popup on the portfolio.
    Live: https://tender-insight-hub.onrender.com | Code: github.com/TeekayVuyisile/etender_system
 
 2. SPU Events. Campus events platform for Sol Plaatje University in a TypeScript monorepo: event
@@ -109,6 +110,7 @@ His work systems at DEDAT and Awrise are described under WORK EXPERIENCE above, 
    import with validation, school-scoped data isolation verified by security tests, and security
    hardening since the MVP (SQL injection, XSS and stored-password fixes). GitHub Actions CI.
    Tech: React 19, Node.js, Express 5, PostgreSQL (Neon), Groq, React Bootstrap, Render.
+   A captioned demo video plays from the "Watch Demo" button in this project's popup on the portfolio.
    Live: https://edulens-lms.onrender.com | Code: github.com/TeekayVuyisile/edulens_mvp
 
 6. AI Travel Planner. Group trip planner: weather-aware AI itineraries (Groq with strict JSON
@@ -116,6 +118,7 @@ His work systems at DEDAT and Awrise are described under WORK EXPERIENCE above, 
    multi-currency shared expenses with minimal settle-up, a streaming trip assistant, PDF export,
    fallbacks for every external API. 56 tests, GitHub Actions CI. Tech: React 19, Node.js, Express,
    PostgreSQL, Groq, Leaflet, Tailwind CSS, TanStack Query.
+   A captioned demo video plays from the "Watch Demo" button in this project's popup on the portfolio.
    Live: https://ai-travel-assistant-cp6l.onrender.com | Code: github.com/TeekayVuyisile/AI-Travel-Planner
 
 7. Mafia: The Underground Society. Real-time multiplayer social deduction game for 4-10 players:
@@ -123,6 +126,7 @@ His work systems at DEDAT and Awrise are described under WORK EXPERIENCE above, 
    state with session-authenticated sockets, restart-proof rooms persisted to PostgreSQL, email and
    Google sign-in (Better Auth), XP, ranks and a leaderboard. Tech: React, Socket.IO, Node.js,
    Express 5, PostgreSQL (Neon), Better Auth, Framer Motion, Bootstrap.
+   A captioned demo video plays from the "Watch Demo" button in this project's popup on the portfolio.
    Live: https://mafia-game-opal.vercel.app | Code: github.com/TeekayVuyisile/mafia-game
 
 8. AI Mock Interview Coach. Voice-driven mock interviews: questions tailored to an uploaded CV and
