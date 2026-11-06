@@ -80,8 +80,9 @@ His work systems at DEDAT and Awrise are described under WORK EXPERIENCE above, 
    caused by PostgreSQL READ COMMITTED snapshots. Shared Zod schemas, axe-core accessibility checks.
    Tech: TypeScript, React 19, Express 5, Drizzle ORM, PostgreSQL (Neon), Zod, Tailwind CSS, Vitest,
    Supertest, GitHub Actions, Render.
-   A 1.5-minute demo video of ticket scanning (student on a laptop, gate staff on a phone) plays
-   from the "Watch Demo" button in this project's popup on the portfolio.
+   A 3-minute captioned demo video (students discovering events, buying tickets and topping up the
+   wallet; gate staff scanning tickets on a phone; the admin dashboard, event editor, live check-ins
+   and moderation) plays from the "Watch Demo" button in this project's popup on the portfolio.
    Live: https://spu-events.onrender.com | Code: github.com/TeekayVuyisile/spu-events
 
 3. RouteOps: Field Route Optimization & Site Verification System. Mobile-first, installable,

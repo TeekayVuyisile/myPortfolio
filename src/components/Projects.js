@@ -197,9 +197,9 @@ const Projects = () => {
       githubLink: "https://github.com/TeekayVuyisile/spu-events",
       demoLink: "https://spu-events.onrender.com/",
       demoVideo: {
-        src: "/assets/spu-events-demo.mp4",
+        src: "/assets/spu-events-full-demo.mp4",
         poster: "/assets/spu-events-demo-poster.webp",
-        caption: "Ticket scanning: a student on a laptop and gate staff on a phone, from Admit to the wrong-ticket cases."
+        caption: "A 3-minute tour: students finding events, buying tickets and topping up the wallet, gate staff scanning tickets on a phone, and the admin dashboard."
       },
       features: [
         "Signed QR tickets with double-scan protection proven by a concurrency test",
