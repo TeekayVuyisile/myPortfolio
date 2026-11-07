@@ -74,6 +74,22 @@ const Education = () => {
         "Cost Optimization"
       ],
       type: "certification"
+    },
+    {
+      id: 5,
+      degree: "Advanced SharePoint (Site Owner & Admin)",
+      institution: "The School of IT",
+      period: "2026",
+      description: "Instructor-led training in running SharePoint Online sites in Microsoft 365, from site structure and security to document management, automation and governance.",
+      achievements: [
+        "Site Collections & Hub Sites",
+        "Permissions, Security Groups & Roles",
+        "Content Types & Site Columns",
+        "Versioning, Retention & Metadata",
+        "Power Automate Approval Workflows",
+        "Site Governance & Sharing Settings"
+      ],
+      type: "certification"
     }
   ];
 

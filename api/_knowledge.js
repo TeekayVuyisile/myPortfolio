@@ -172,6 +172,12 @@ EDUCATION & CERTIFICATIONS
    Security Fundamentals, Infrastructure as Code, Cloud Deployment Strategies, Monitoring &
    Logging, Cost Optimization.
 
+5. Advanced SharePoint (Site Owner & Admin) — The School of IT (November 2026). Instructor-led
+   training in running SharePoint Online sites in Microsoft 365. Key learnings: site collections and
+   hub sites, permissions, security groups and roles, content types and site columns, document
+   library versioning, retention and metadata, Power Automate approval workflows, list validation
+   and calculated columns, and site governance.
+
 CLIENT REFERENCES
 - Mr Vernan Van Nel, Assistant Director (Supervisor) at the Department of Economic Development and
   Tourism: "Teekay demonstrated exceptional skill in developing both our learner management system
